@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+}
+
+.Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+    width: 375px;
+    height: 100vh;
+    background-color: #E5E5E5;
+}
+
+.TopBar{
+    display: flex;
+    align-items: center;
+    width: 375px;
+    height: 80px;
+    background-color: #FFFFFF;
+    position: -webkit-sticky;
+    box-shadow: 0px 5px 25px 0px rgba(40, 40, 40, 0.25);
+}
+
+.LogoIcon{
+    width: 75px;
+    margin: 0 auto 0 22px;
+}
+.ContactIcon{
+    width: 43px;
+    margin: 0 22px 0 auto ;
+}
+
+.SendMessage{
+    display: flex;
+    width: 375px;
+    height: 80px;
+    background-color: #FFFFFF;
+    align-items: center;
+    justify-content: space-around;
+    position: -webkit-sticky;
+    box-shadow: 0px -10px 25px 0px rgba(40, 40, 40, 0.25);
+}
+
+.TextMessage{
+    border: none;
+    font-size: 18px;
+}
+
+.SendButton{
+    display: flex;
+    width: 26px;
+    height: 26px;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
