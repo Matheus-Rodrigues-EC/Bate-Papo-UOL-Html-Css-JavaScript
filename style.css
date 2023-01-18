@@ -2,11 +2,6 @@
     margin: 0;
 }
 
-body {
-    background-color: #E5E5E5;
-    font-family: 'Roboto', sans-serif;
-}
-
 .Container{
     display: flex;
     flex-direction: column;
@@ -27,7 +22,7 @@ body {
     align-items: center;
 
     position: fixed;
-    z-index: 1;
+    z-index: 5;
 }
 
 .LogoLogin{
@@ -43,6 +38,7 @@ body {
     border-radius: 4px;
     margin: 94px auto 0 auto;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 .ButtonLogin{
     width: 109px;
@@ -53,6 +49,7 @@ body {
     border: none;
     border-radius: 9px;
     margin: 15px auto 0 auto;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -62,7 +59,8 @@ body {
     width: 375px;
     height: 80px;
     background-color: #FFFFFF;
-    position: -webkit-sticky;
+    position: fixed;
+    top: 0;
     box-shadow: 0px 5px 25px 0px rgba(40, 40, 40, 0.25);
 }
 
@@ -75,7 +73,51 @@ body {
     margin: 0 22px 0 auto ;
 }
 
+/* MENSAGENS */
+.PostMessages {
+    background-color: #E5E5E5;
 
+    height: auto;
+    padding: 110px 0 100px 0;
+
+    overflow-y: scroll;
+}
+
+.message {
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+    line-height: 20px;
+
+    border-radius: 2px;
+
+    padding: 14px 9px;
+    margin-bottom: 4px;
+    width: 100%;
+    height: auto;
+}
+
+.message.status {
+    background-color: #DCDCDC;
+}
+
+.message.private {
+    background-color: #FFDEDE;
+}
+
+.message .hour {
+    color: #AAAAAA;
+    margin-right: 3px;
+}
+
+.message .info {
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.message .info .normal {
+    font-weight: 400;
+}
 
 
 
@@ -88,7 +130,8 @@ body {
     background-color: #FFFFFF;
     align-items: center;
     justify-content: space-around;
-    position: -webkit-sticky;
+    position: fixed;
+    bottom: 0;
     box-shadow: 0px -10px 25px 0px rgba(40, 40, 40, 0.25);
 }
 
@@ -97,6 +140,7 @@ body {
     font-size: 18px;
     height: 30px;
     padding: 5px 0 5px 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .SendButton{
@@ -107,4 +151,8 @@ body {
     align-items: center;
     background-color: transparent;
     border: none;
+}
+
+.Hidden{
+    display: none;
 }

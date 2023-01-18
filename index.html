@@ -5,43 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <title>Bate-Papo UOL</title>
 </head>
 <body>
     <div class="Container">
-
         <!--Tela de Login-->
         <div class="Login">
             <img src="./Image/Logo.png" alt="" class="LogoLogin">
+            <div class="Alert"></div>
             <input type="text" placeholder="Digite seu nome" class="InputLogin" />
-            <button class="ButtonLogin" onclick="Login()">Entrar</button>
+            <button class="ButtonLogin" onclick="VerifyUser()">Entrar</button>
         </div>
-
         <!-- Fim Tela de Login-->
-
-
-
         <div class="TopBar">
             <img src="./Image/Logo.png" alt="" class="LogoIcon">
             <img src="./Image/Contacts.png" alt="" class="ContactIcon">
         </div>
+        <div class="PostMessages">
 
-        <main class="PostMessages">
-
-        </main>
-
+        </div>
         <div class="BottonBar">
             <input class="TextMessage" type="text" placeholder="Escreva aqui..."/>
-            <button class="SendButton" onclick="SendMessage()">
+            <button class="SendButton" onclick="SendMessage(this)" >
                 <img src="./Image/Send.png" alt="" class="SendButton">
             </button>
         </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="./script.js"></script>
-
 </body>
 </html>
