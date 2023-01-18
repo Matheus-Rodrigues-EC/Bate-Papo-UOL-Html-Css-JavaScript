@@ -6,17 +6,19 @@ function KeepOnline(){
     const baseURL = "https://mock-api.driven.com.br/api/v6/uol/status"
     const user =  {name: `${username}`};
     axios.post(baseURL, user);
-    console.log(username + " entrou");
+    console.log(username + " is Online");
 }
 
 function success(resposta){
     console.log(resposta.status);
     message_alert.innerHTML = "";
-    setInterval(KeepOnline(), 5000);
+    //setInterval(KeepOnline(), 5000);
     
     (document.querySelector(".Login")).classList.add("Hidden");
 
-    GetMessages();
+    
+    setInterval(GetMessages, 3000);
+    setInterval(KeepOnline, 5000);
 }
 
 function fail(erro){
@@ -27,8 +29,19 @@ function fail(erro){
 function VerifyUser(){
     username = document.querySelector(".InputLogin").value;
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", {name: username});
+    console.log(username + " entrou");
     promise.then(success);
     promise.catch(fail);
+}
+
+function EnterButton(){
+    document.addEventListener('keypress', function(e){
+        if(e.key === 13){
+            const btn = document.querySelector('.ButtonLogin');
+            console.log('cliquei');
+            btn.click();
+        }
+    })
 }
 // Fim LOGIN
 
@@ -46,6 +59,7 @@ function LoadMessages(Response){
 
     let Messages = Response.data;
 
+    Posts.innerHTML = "";
     for(let i = 0; i < Messages.length; i++){
 
         if(Messages[i].type === "status"){
@@ -77,24 +91,37 @@ function LoadMessages(Response){
     }
     (document.querySelector(".message:last-child")).scrollIntoView();
     // Atualiza as mensagens a cada 3 segundos
-    setInterval(GetMessages, 500);
+    //setInterval(GetMessages, 3000);
 }
 
 function SendMessage(){
     const WriteMessage = document.querySelector(".BottonBar .TextMessage").value;
-
     let promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages/", 
                 {from: username,
                 to: "Todos",
                 text: WriteMessage,
                 type: "message"});
+                console.log(WriteMessage);
+    const ClearText = document.querySelector('.TextMessage');
+    ClearText.value = "";
 
-    WriteMessage.innerHTML = null;
+    GetMessages();
 
     // caso sucesso: recarrega mensagens                                                                                        
-    promise.then(LoadMessages);
+    //promise.then(LoadMessages);
 
     // caso erro: recarrega a pagina, indo para a tela de login
     promise.catch(erro => {console.log(erro.response.status); window.location.reload(true)});
 }
+
+function SendEnter(){
+    document.addEventListener('keypress', function(e){
+        if(e.key === 'Enter'){
+            const btn = document.querySelector('.SendButton');
+            btn.SendMessage();
+        }
+    })
+}
 // Fim MENSAGENS
+
+
