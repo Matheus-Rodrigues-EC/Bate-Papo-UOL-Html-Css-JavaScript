@@ -124,7 +124,7 @@ function LoadParticipants(Response) {
 
 function SendMessage() {
     const WriteMessage = document.querySelector(".BottonBar .TextMessage").value;
-    let promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages/",
+    let promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages",
         {
             from: username,
             to: "Todos",
