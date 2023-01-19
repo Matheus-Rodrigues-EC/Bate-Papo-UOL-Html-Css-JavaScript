@@ -33,23 +33,19 @@
                 <div class="Label">
                     <p>Escolha um contato para enviar mensagem:</p>
                 </div>
-                <div class="ListItem Todos" data-test="all">
-                    <ion-icon class="IconList" name="people"></ion-icon>
-                    <p>Todos</p>
-                </div>
                 <ul class="ContactsList">
                 </ul>
                 <div class="Label">
                     <p>Escolha a visibilidade:</p>
                 </div>
                 <ul class="Visibility">
-                    <li class="ListItem public" data-test="public">
+                    <li class="ListItem public" data-test="public" onclick="SetVisibility()">
                         <ion-icon class="IconList" name="lock-open"></ion-icon>
-                        <p>Público</p>
+                        <p class="SelectedVisibility">Publico</p>
                     </li>
-                    <li class="ListItem private" data-test="private">
+                    <li class="ListItem private" data-test="private" onclick="SetVisibility()">
                         <ion-icon class="IconList" name="lock-closed"></ion-icon>
-                        <p>Reservadamente</p>
+                        <p class="SelectedVisibility">Reservadamente</p>
                     </li>
                 </ul>
             </ul>

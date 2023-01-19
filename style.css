@@ -200,8 +200,7 @@
     font-weight: 700;
 }
 
-.ContactsList,
-.Visibility {
+.ContactsList, .Visibility {
     padding-left: 20px;
     margin-bottom: 30px;
 }
@@ -212,6 +211,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     padding: 5px 0;
+    gap: 5px;
 }
 
 .ListItem.Todos {

@@ -16,7 +16,7 @@ function success(resposta) {
 
     (document.querySelector(".Login")).classList.add("Hidden");
 
-    setInterval(GetParticipants, 3000);
+    setInterval(GetParticipants, 5000);
     setInterval(GetMessages, 3000);
     setInterval(KeepOnline, 5000);
 }
@@ -35,6 +35,56 @@ function VerifyUser() {
 }
 
 // Fim LOGIN
+
+// Inicio SIDEMENU
+
+const ContactButton = document.querySelector('.ContactButton');
+ContactButton.addEventListener('click', (event) => {
+    const SideMenu = document.querySelector(".SideMenu");
+    SideMenu.classList.toggle('SideVisible');
+    SideMenu.classList.toggle('SideHidden');
+})
+
+// Inicio SELECIONAR CONTATO
+let Contact = 'Todos';
+function SelectContact(){
+    let Contacts = document.querySelectorAll('.ListItem');
+    Contacts.forEach((select) => {
+        select.addEventListener('click', (event) => {
+            Contact = select.querySelector('.Selected').innerHTML;
+            console.log(`Você selecionou ${Contact}`);
+            const SideMenu = document.querySelector(".SideMenu");
+            SideMenu.classList.toggle('SideVisible');
+            SideMenu.classList.toggle('SideHidden');
+        })
+    })
+}
+// Fim SELECIONAR CONTATO
+
+let Visibility = 'message'
+// Inicio SELECIONAR VISIBILIDADE
+function SetVisibility(){
+    let Visible = document.querySelectorAll('.ListItem');
+    Visible.forEach((select) => {
+        select.addEventListener('click', (event) => {
+            if(select.querySelector('.SelectedVisibility').innerHTML === 'Publico'){
+                Visibility = 'message';
+                console.log(`Você selecionou enviar mensagens para Todos`);
+            }else if(select.querySelector('.SelectedVisibility').innerHTML === 'Reservadamente'){
+                Visibility = 'private_message';
+                console.log(`Você selecionou enviar mensagens privadas para ${Contact}`);
+            }
+            const SideMenu = document.querySelector(".SideMenu");
+            SideMenu.classList.toggle('SideVisible');
+            SideMenu.classList.toggle('SideHidden');
+        })
+    })
+}
+// Fim SELECIONAR VISIBILIDADE
+
+
+// Fim SIDEMENU
+
 
 // Inicio MENSAGENS
 function GetMessages() {
@@ -84,20 +134,6 @@ function LoadMessages(Response) {
     //setInterval(GetMessages, 3000);
 }
 
-const ContactButton = document.querySelector('.ContactButton');
-ContactButton.addEventListener('click', (event) => {
-    const SideMenu = document.querySelector(".SideMenu");
-    SideMenu.classList.toggle('SideVisible');
-    SideMenu.classList.toggle('SideHidden');
-})
-
-const SelectContact = document.querySelector('.ListItem');
-SelectContact.addEventListener('click', (event) => {
-    const SideMenu = document.querySelector(".SideMenu");
-    SideMenu.classList.toggle('SideVisible');
-    SideMenu.classList.toggle('SideHidden');
-})
-
 function GetParticipants() {
     let ListParticipants = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants');
     ListParticipants.then(LoadParticipants);
@@ -108,14 +144,16 @@ function GetParticipants() {
 function LoadParticipants(Response) {
     const Participants = document.querySelector('.ContactsList');
     let ListP = Response.data;
-    console.log(ListP)
-    Participants.innerHTML = " ";
+    Participants.innerHTML =   `<li class="ListItem" data-test="all" onclick="SelectContact()">
+                                    <ion-icon class="IconList" name="people"></ion-icon> 
+                                    <span class="Selected">Todos</span> 
+                                </li>`
 
     let Participant = ' ';
     for (let i = 0; i < ListP.length; i++) {
-        Participant = `<li class="ListItem" data-test="participant">
+        Participant = `<li class="ListItem" data-test="participant" onclick="SelectContact()">
                             <ion-icon name="person-circle"></ion-icon>
-                            <span>${ListP[i].name}</span>
+                            <span class="Selected">${ListP[i].name}</span>
                         </li>`
 
         Participants.innerHTML += Participant;
@@ -127,9 +165,9 @@ function SendMessage() {
     let promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages",
         {
             from: username,
-            to: "Todos",
+            to: Contact,
             text: WriteMessage,
-            type: "message"
+            type: Visibility
         });
     console.log(WriteMessage);
     const ClearText = document.querySelector('.TextMessage');
