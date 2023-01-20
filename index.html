@@ -28,7 +28,7 @@
                 <ion-icon name="people" class="ContactIcon" data-test="open-participants"></ion-icon>
             </button>
         </div>
-        <div class="SideShadow SideHidden"></div>
+        <div class="SideShadow SideHidden" data-test="overlay"></div>
         <div class="SideMenu SideHidden">
             <ul class="SideList">
                 <div class="Label">
@@ -40,13 +40,15 @@
                     <p>Escolha a visibilidade:</p>
                 </div>
                 <ul class="Visibility">
-                    <li class="ListItem public" data-test="public" onclick="SetVisibility()">
+                    <li class="ListItem Public" data-test="public" onclick="SetVisibility()">
                         <ion-icon class="IconList" name="lock-open"></ion-icon>
                         <p class="SelectedVisibility">Publico</p>
+                        <ion-icon name="checkmark-outline" class="Check CheckOff"></ion-icon>
                     </li>
-                    <li class="ListItem private" data-test="private" onclick="SetVisibility()">
+                    <li class="ListItem Private" data-test="private" onclick="SetVisibility()">
                         <ion-icon class="IconList" name="lock-closed"></ion-icon>
                         <p class="SelectedVisibility">Reservadamente</p>
+                        <ion-icon name="checkmark-outline" class="Check CheckOff"></ion-icon>
                     </li>
                 </ul>
             </ul>
@@ -55,8 +57,11 @@
 
         </div>
         <div class="BottonBar">
-            <input class="TextMessage" type="text" placeholder="Escreva aqui..." data-test="input-message" />
-            <button class="SendButton" onclick="SendMessage(this)" data-test="send-message">
+            <div class="Recipient">
+                <input class="TextMessage" type="text" placeholder="Escreva aqui..." data-test="input-message" />
+            </div>
+            
+            <button class="SendButton" onclick="SendMessage()" data-test="send-message">
                 <img src="./Image/Send.png" alt="" class="SendButton">
             </button>
         </div>

@@ -55,6 +55,11 @@ function SelectContact(){
     Contacts.forEach((select) => {
         select.addEventListener('click', (event) => {
             Contact = select.querySelector('.Selected').innerHTML;
+            const Check = document.querySelectorAll('.Check');
+            Check.forEach((checking) => {
+                checking.classList.toggle('CheckOn');
+                checking.classList.toggle('CheckOff');
+            })
             console.log(`Você selecionou ${Contact}`);
         })
     })
@@ -80,7 +85,6 @@ function SetVisibility(){
 // Fim SELECIONAR VISIBILIDADE
 
 // Inicio SAIR MENU LATERAL
-
 const Shadow = document.querySelector('.SideShadow');
 Shadow.addEventListener('click', (event) => {
     Shadow.classList.toggle('On');
@@ -89,7 +93,6 @@ Shadow.addEventListener('click', (event) => {
     SideMenu.classList.toggle('SideVisible');
     SideMenu.classList.toggle('SideHidden');
 })
-
 // Fim SAIR MENU LATERAL
 
 // Fim SIDEMENU
@@ -117,7 +120,7 @@ function LoadMessages(Response) {
                         <span class="info">${Messages[i].from}</span>
                         <span class="text">${Messages[i].text}</span>
                         </div>`
-        } else if (Messages[i].type === "message") {
+        } else if ((Messages[i].type === "message")) {
             Message = `<div class="message" data-test="message">
                         <span class="hour">${Messages[i].time}</span>
                         <span class="info">${Messages[i].from} 
@@ -126,7 +129,8 @@ function LoadMessages(Response) {
                         <span class="text">${Messages[i].text}</span>
                         </div>`
         }
-        else if (Messages[i].type === "private_message" && Messages[i].to === username) {
+        else if ((Messages[i].type === "private_message" && Messages[i].to === username) || 
+                    (Messages[i].type === "private_message" && Messages[i].from === username)) {
             Message = `<div class="message private" data-test="message">
                         <span class="hour">${Messages[i].time}</span>
                         <span class="info">${Messages[i].from} 
@@ -139,8 +143,6 @@ function LoadMessages(Response) {
         Posts.innerHTML += Message;
     }
     (document.querySelector(".message:last-child")).scrollIntoView();
-    // Atualiza as mensagens a cada 3 segundos
-    //setInterval(GetMessages, 3000);
 }
 
 function GetParticipants() {
@@ -199,3 +201,7 @@ function ListContacts() {
 
 }
 // Fim LISTAR CONTATOS
+
+// Inicio RECIPIENT
+const Recipient = document.querySelector('.Recipient');
+// Fim RECIPIENT
