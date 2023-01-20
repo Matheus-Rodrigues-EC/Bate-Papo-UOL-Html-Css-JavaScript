@@ -73,8 +73,8 @@ SetVisible.forEach((Visible) => {
             UnSelect.classList.add('CheckOff');
             UnSelect.classList.remove('CheckOn');
         })
-        Visible.querySelector('.Check').classList.add('CheckOn')
-        Visible.querySelector('.Check').classList.remove('CheckOff')
+        Visible.querySelector('.CheckVisible').classList.add('CheckOn')
+        Visible.querySelector('.CheckVisible').classList.remove('CheckOff')
         if(Visible.querySelector('.SelectedVisibility').innerHTML === 'Reservadamente') {
             Visibility = 'private_message';
         }else {
