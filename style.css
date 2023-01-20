@@ -106,10 +106,11 @@
 
     border-radius: 2px;
 
-    padding: 14px 9px;
+    padding: 15px 15px;
     margin-bottom: 4px;
     width: 100%;
     height: auto;
+    box-sizing: border-box;
 }
 
 .message.status {

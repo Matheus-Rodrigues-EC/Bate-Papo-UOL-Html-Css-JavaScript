@@ -1,4 +1,4 @@
-let username = "";
+let username = '';
 let message_alert = document.querySelector(".Login .Alert");
 
 // Início LOGIN
@@ -30,6 +30,7 @@ function fail(erro) {
 
 function VerifyUser() {
     username = document.querySelector(".InputLogin").value;
+    alert(`Você está Logando como ${username}`);
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", { name: username });
     //console.log(username + " entrou");
     promise.then(success);
@@ -119,7 +120,8 @@ function LoadMessages(Response) {
                         <span class="text">${Messages[i].text}</span>
                         </div>`
         }
-        else if (Messages[i].type === "private_message" && (Messages[i].to === username || Messages[i].from === username)) {
+        else if ((Messages[i].type === "private_message" && Messages[i].to === username) || 
+                (Messages[i].type === "private_message" && Messages[i].from === username)) {
             Message = `<div class="message private" data-test="message">
                         <span class="hour">${Messages[i].time}</span>
                         <span class="info">${Messages[i].from} 
@@ -201,6 +203,8 @@ function SendMessage() {
     // caso erro: recarrega a pagina, indo para a tela de login
     promise.catch(erro => { console.log(erro.response.status); window.location.reload(true) });
 }
+
+WriteMessage = '';
 
 document.addEventListener("keydown", function (event) {
     if (event.key === 'Enter') {
