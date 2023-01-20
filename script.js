@@ -68,7 +68,7 @@ let Visibility = 'message'
 const SetVisible = document.querySelectorAll('.ListItemVisibility');
 SetVisible.forEach((Visible) => {
     Visible.addEventListener('click', (event) => {
-        let SetHidden = document.querySelectorAll('.Check', '.CheckOn');
+        let SetHidden = document.querySelectorAll('.CheckVisible', '.CheckOn');
         SetHidden.forEach((UnSelect) => {
             UnSelect.classList.add('CheckOff');
             UnSelect.classList.remove('CheckOn');
