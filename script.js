@@ -16,7 +16,7 @@ function success(resposta) {
 
     (document.querySelector(".Login")).classList.add("Hidden");
 
-    setInterval(GetParticipants, 5000);
+    setInterval(GetParticipants, 10000);
     setInterval(GetMessages, 3000);
     setInterval(KeepOnline, 5000);
 }
@@ -43,6 +43,9 @@ ContactButton.addEventListener('click', (event) => {
     const SideMenu = document.querySelector(".SideMenu");
     SideMenu.classList.toggle('SideVisible');
     SideMenu.classList.toggle('SideHidden');
+    const Shadow = document.querySelector('.SideShadow');
+    Shadow.classList.toggle('On');
+    Shadow.classList.toggle('SideHidden');
 })
 
 // Inicio SELECIONAR CONTATO
@@ -53,9 +56,6 @@ function SelectContact(){
         select.addEventListener('click', (event) => {
             Contact = select.querySelector('.Selected').innerHTML;
             console.log(`Você selecionou ${Contact}`);
-            const SideMenu = document.querySelector(".SideMenu");
-            SideMenu.classList.toggle('SideVisible');
-            SideMenu.classList.toggle('SideHidden');
         })
     })
 }
@@ -74,14 +74,23 @@ function SetVisibility(){
                 Visibility = 'private_message';
                 console.log(`Você selecionou enviar mensagens privadas para ${Contact}`);
             }
-            const SideMenu = document.querySelector(".SideMenu");
-            SideMenu.classList.toggle('SideVisible');
-            SideMenu.classList.toggle('SideHidden');
         })
     })
 }
 // Fim SELECIONAR VISIBILIDADE
 
+// Inicio SAIR MENU LATERAL
+
+const Shadow = document.querySelector('.SideShadow');
+Shadow.addEventListener('click', (event) => {
+    Shadow.classList.toggle('On');
+    Shadow.classList.toggle('SideHidden');
+    const SideMenu = document.querySelector(".SideMenu");
+    SideMenu.classList.toggle('SideVisible');
+    SideMenu.classList.toggle('SideHidden');
+})
+
+// Fim SAIR MENU LATERAL
 
 // Fim SIDEMENU
 
