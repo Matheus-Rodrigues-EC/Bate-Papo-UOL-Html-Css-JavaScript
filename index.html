@@ -28,8 +28,8 @@
                 <ion-icon name="people" class="ContactIcon" data-test="open-participants"></ion-icon>
             </button>
         </div>
-        <div class="SideShadow SideHidden" data-test="overlay"></div>
-        <div class="SideMenu SideHidden">
+        <div class="SideShadow Hidden" data-test="overlay"></div>
+        <div class="SideMenu Hidden">
             <ul class="SideList">
                 <div class="Label">
                     <p>Escolha um contato para enviar mensagem:</p>
@@ -40,12 +40,12 @@
                     <p>Escolha a visibilidade:</p>
                 </div>
                 <ul class="Visibility">
-                    <li class="ListItem Public" data-test="public" onclick="SetVisibility()">
+                    <li class="ListItemVisibility" data-test="public">
                         <ion-icon class="IconList" name="lock-open"></ion-icon>
                         <p class="SelectedVisibility">Publico</p>
                         <ion-icon name="checkmark-outline" class="Check CheckOff"></ion-icon>
                     </li>
-                    <li class="ListItem Private" data-test="private" onclick="SetVisibility()">
+                    <li class="ListItemVisibility" data-test="private">
                         <ion-icon class="IconList" name="lock-closed"></ion-icon>
                         <p class="SelectedVisibility">Reservadamente</p>
                         <ion-icon name="checkmark-outline" class="Check CheckOff"></ion-icon>
