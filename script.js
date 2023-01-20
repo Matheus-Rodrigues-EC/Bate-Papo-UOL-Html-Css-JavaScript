@@ -15,8 +15,8 @@ function success(resposta) {
 
     (document.querySelector(".Login")).classList.add("Hidden");
 
-    GetParticipants();
     GetMessages();
+    GetParticipants();
 
     setInterval(GetParticipants, 10000);
     setInterval(GetMessages, 3000);
@@ -75,9 +75,9 @@ SetVisible.forEach((Visible) => {
         })
         Visible.querySelector('.Check').classList.add('CheckOn')
         Visible.querySelector('.Check').classList.remove('CheckOff')
-        if(Visible.querySelector('.SelectedVisibility').innerHTML === 'Reservadamente'){
+        if(Visible.querySelector('.SelectedVisibility').innerHTML === 'Reservadamente') {
             Visibility = 'private_message';
-        }else{
+        }else {
             Visibility = 'message';
         }
         //console.log(Visibility)
@@ -144,7 +144,7 @@ function GetParticipants() {
 function LoadParticipants(Response) {
     const Participants = document.querySelector('.ContactsList');
     let ListP = Response.data;
-    Participants.innerHTML =   `<li class="ListItem" data-test="all">
+    Participants.innerHTML = `<li class="ListItem" data-test="all">
                                     <ion-icon class="IconList" name="people"></ion-icon> 
                                     <span class="Selected">Todos</span> 
                                     <ion-icon name="checkmark-outline" class="Check CheckOff"></ion-icon>
@@ -160,22 +160,22 @@ function LoadParticipants(Response) {
 
         Participants.innerHTML += Participant;
 
-// Inicio SELECIONAR CONTATO
+        // Inicio SELECIONAR CONTATO
         let SetContact = document.querySelectorAll('.ListItem');
         SetContact.forEach((Select) => {
             Select.addEventListener('click', (event) => {
-            let UnSelectContact = document.querySelectorAll('.Check', '.CheckOn');
-            UnSelectContact.forEach((UnSelect) => {
-                UnSelect.classList.add('CheckOff');
-                UnSelect.classList.remove('CheckOn');
+                let UnSelectContact = document.querySelectorAll('.Check', '.CheckOn');
+                UnSelectContact.forEach((UnSelect) => {
+                    UnSelect.classList.add('CheckOff');
+                    UnSelect.classList.remove('CheckOn');
+                })
+                Select.querySelector('.Check').classList.add('CheckOn');
+                Select.querySelector('.Check').classList.remove('CheckOff');
+                Contact = Select.querySelector('.Selected').innerHTML;
             })
-            Select.querySelector('.Check').classList.add('CheckOn');
-            Select.querySelector('.Check').classList.remove('CheckOff');
-            Contact = Select.querySelector('.Selected').innerHTML;
-            })
-        //console.log(Contact);
+            //console.log(Contact);
         })
-// Fim SELECIONAR CONTATO
+        // Fim SELECIONAR CONTATO
 
     }
 }
@@ -202,8 +202,8 @@ function SendMessage() {
     promise.catch(erro => { console.log(erro.response.status); window.location.reload(true) });
 }
 
-document.addEventListener("keydown", function(event) {
-    if(event.key === 'Enter'){
+document.addEventListener("keydown", function (event) {
+    if (event.key === 'Enter') {
         SendMessage();
     }
 })
