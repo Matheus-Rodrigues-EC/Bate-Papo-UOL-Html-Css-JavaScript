@@ -149,7 +149,7 @@ function LoadParticipants(Response) {
     Participants.innerHTML = `<li class="ListItem" data-test="all">
                                     <ion-icon class="IconList" name="people"></ion-icon> 
                                     <span class="Selected">Todos</span> 
-                                    <ion-icon name="checkmark-outline" class="Check CheckOff"></ion-icon>
+                                    <ion-icon name="checkmark-outline" class="Check CheckOff" data-test="check"></ion-icon>
                                 </li>`
 
     let Participant = ' ';
@@ -157,7 +157,7 @@ function LoadParticipants(Response) {
         Participant = `<li class="ListItem" data-test="participant">
                             <ion-icon name="person-circle"></ion-icon>
                             <span class="Selected">${ListP[i].name}</span>
-                            <ion-icon name="checkmark-outline" class="Check CheckOff"></ion-icon>
+                            <ion-icon name="checkmark-outline" class="Check CheckOff" data-test="check"></ion-icon>
                         </li>`
 
         Participants.innerHTML += Participant;
