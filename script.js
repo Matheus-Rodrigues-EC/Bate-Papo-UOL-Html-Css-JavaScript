@@ -152,7 +152,7 @@ function LoadParticipants(Response) {
                                     <ion-icon name="checkmark-outline" class="Check CheckOff" data-test="check"></ion-icon>
                                 </li>`
 
-    let Participant = ' ';
+    let Participant = '';
     for (let i = 0; i < ListP.length; i++) {
         Participant = `<li class="ListItem" data-test="participant">
                             <ion-icon name="person-circle"></ion-icon>
@@ -161,6 +161,7 @@ function LoadParticipants(Response) {
                         </li>`
 
         Participants.innerHTML += Participant;
+        Participant = ''
 
         // Inicio SELECIONAR CONTATO
         let SetContact = document.querySelectorAll('.ListItem');

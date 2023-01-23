@@ -93,8 +93,10 @@
     background-color: #E5E5E5;
 
     width: 375px;
-    height: 73%;
+    height: 100%;
     padding: 110px 0 0 0;
+    margin-bottom: 85px;
+    box-sizing: border-box;
 
     overflow-y: scroll;
 }
@@ -109,36 +111,45 @@
 
     padding: 15px 15px;
     margin-bottom: 4px;
-    width: 100%;
+    width: 375px;
     height: auto;
     box-sizing: border-box;
 }
 
 .message.status {
     background-color: #DCDCDC;
+    width: 375px;
+    box-sizing: border-box;
 }
 
 .message.private {
     background-color: #FFDEDE;
+    width: 375px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
 }
 
 .message .hour {
     color: #AAAAAA;
     margin-right: 3px;
+    width: 375px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
 }
 
 .message .info {
     font-weight: 700;
     margin-right: 2px;
+    width: 375px;
+    overflow-wrap: break-word;
 }
 
 .message .info .normal {
     font-weight: 400;
+    width: 375px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
 }
-
-
-
-
 
 .BottonBar {
     display: flex;
@@ -223,6 +234,7 @@
     font-weight: 400;
     padding: 5px 0;
     gap: 5px;
+    box-sizing: border-box;
 }
 
 .ListItemVisibility {
