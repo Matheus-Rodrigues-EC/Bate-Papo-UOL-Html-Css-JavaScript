@@ -200,10 +200,10 @@ function SendMessage() {
     const ClearText = document.querySelector('.TextMessage');
     ClearText.value = "";
 
-    GetMessages();
+    //GetMessages();
 
     // caso sucesso: recarrega mensagens                                                                                        
-    //promise.then(LoadMessages);
+    promise.then(LoadMessages);
 
     // caso erro: recarrega a pagina, indo para a tela de login
     promise.catch(erro => { console.log(erro.response.status); window.location.reload(true) });
