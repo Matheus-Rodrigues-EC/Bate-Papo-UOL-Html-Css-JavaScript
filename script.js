@@ -80,6 +80,7 @@ SetVisible.forEach((Visible) => {
         }else {
             Visibility = 'message';
         }
+        SetRecipient();
         //console.log(Visibility)
     })
 })
@@ -175,16 +176,25 @@ function LoadParticipants(Response) {
                 Select.querySelector('.Check').classList.add('CheckOn');
                 Select.querySelector('.Check').classList.remove('CheckOff');
                 Contact = Select.querySelector('.Selected').innerHTML;
-
-                if(Contact === 'Todos'){
-                    Visibility = 'message'
-                }
+                console.log(Contact);
+                console.log(Visibility);
+                SetRecipient();
             })
             //console.log(Contact);
         })
         // Fim SELECIONAR CONTATO
 
     }
+}
+
+function SetRecipient(){
+    const Recip = document.querySelector('.Recipient');
+                if((Contact !== 'Todos') && (Visibility === 'private_message')){
+                    Recip.innerHTML = ` <input class="TextMessage" type="text" placeholder="Escreva aqui..." data-test="input-message" />
+                                        <div class="Recipient2" data-test="recipient">Enviando para ${Contact} (reservadamente)</div>`;
+                }else{
+                    Recip.innerHTML = `<input class="TextMessage" type="text" placeholder="Escreva aqui..." data-test="input-message" />`;
+                }
 }
 
 function SendMessage() {

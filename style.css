@@ -157,7 +157,7 @@
     height: 80px;
     background-color: #FFFFFF;
     align-items: center;
-    justify-content: space-around;
+    padding: 0 15px;
     position: fixed;
     bottom: 0;
     box-shadow: 0px -10px 25px 0px rgba(40, 40, 40, 0.25);
@@ -179,6 +179,15 @@
     align-items: center;
     background-color: transparent;
     border: none;
+}
+
+.Recipient2{
+    width: 299px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    margin-left: 10px;
+    color: #505050;
 }
 
 .Hidden {
