@@ -97,6 +97,7 @@
     padding: 110px 0 0 0;
     margin-bottom: 85px;
     box-sizing: border-box;
+    overflow-wrap: break-word;
 
     overflow-y: scroll;
 }
@@ -114,12 +115,14 @@
     width: 375px;
     height: auto;
     box-sizing: border-box;
+    overflow-wrap: break-word;
 }
 
 .message.status {
     background-color: #DCDCDC;
     width: 375px;
     box-sizing: border-box;
+    overflow-wrap: break-word;
 }
 
 .message.private {
@@ -157,6 +160,7 @@
     height: 80px;
     background-color: #FFFFFF;
     align-items: center;
+    justify-content: space-around;
     padding: 0 15px;
     position: fixed;
     bottom: 0;
