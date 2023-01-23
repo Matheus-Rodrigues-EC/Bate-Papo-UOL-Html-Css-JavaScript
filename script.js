@@ -132,6 +132,7 @@ function LoadMessages(Response) {
         }
 
         Posts.innerHTML += Message;
+        Message = '';
     }
     (document.querySelector(".message:last-child")).scrollIntoView();
 }
@@ -174,6 +175,10 @@ function LoadParticipants(Response) {
                 Select.querySelector('.Check').classList.add('CheckOn');
                 Select.querySelector('.Check').classList.remove('CheckOff');
                 Contact = Select.querySelector('.Selected').innerHTML;
+
+                if(Contact === 'Todos'){
+                    Visibility = 'message'
+                }
             })
             //console.log(Contact);
         })
