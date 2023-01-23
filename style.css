@@ -161,10 +161,10 @@
     background-color: #FFFFFF;
     align-items: center;
     justify-content: space-around;
-    padding: 0 15px;
     position: fixed;
     bottom: 0;
     box-shadow: 0px -10px 25px 0px rgba(40, 40, 40, 0.25);
+    box-sizing: border-box;
 }
 
 .TextMessage {
@@ -186,7 +186,7 @@
 }
 
 .Recipient2{
-    width: 299px;
+    width: 250px;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 14px;
