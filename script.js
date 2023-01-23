@@ -30,7 +30,6 @@ function fail(erro) {
 
 function VerifyUser() {
     username = document.querySelector(".InputLogin").value;
-    alert(`Você está Logando como ${username}`);
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", { name: username });
     //console.log(username + " entrou");
     promise.then(success);
@@ -199,11 +198,11 @@ function SendMessage() {
     //console.log(WriteMessage);
     const ClearText = document.querySelector('.TextMessage');
     ClearText.value = "";
-
-    //GetMessages();
+    
+    // GetMessages();
 
     // caso sucesso: recarrega mensagens                                                                                        
-    promise.then(LoadMessages);
+    promise.then(GetMessages);
 
     // caso erro: recarrega a pagina, indo para a tela de login
     promise.catch(erro => { console.log(erro.response.status); window.location.reload(true) });
